@@ -2,10 +2,15 @@
 
 Dictionaries
 Why are dictionaries necessary? Why not use a list?
+-because you can idex using keys instead of numbers and lookup time is very fast
 
 How is the lookup time in a dictionary different from that of a list?
+-the lookup time for a dictionary is much faster because you just have to look for the key not loop over every item
+    to see if it's the key
 
 How do you create an empty dictionary? How do you create a dictionary with initial content?
+-you create an empty dictionary by setting whatever you want your dictionary named as equal to {}. You can create an
+    inital dictionary with values by entering your_dictionary = {key1: 'value', key2: 'value'}
 
 How do you add a new key/value pair to a dictionary? How do you update the value of a key in a dictionary?
 
