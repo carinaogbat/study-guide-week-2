@@ -2,43 +2,67 @@
 
 Dictionaries
 Why are dictionaries necessary? Why not use a list?
--because you can idex using keys instead of numbers and lookup time is very fast
+-because you can index using keys instead of numbers and lookup time is very fast
 
 How is the lookup time in a dictionary different from that of a list?
 -the lookup time for a dictionary is much faster because you just have to look for the key not loop over every item
     to see if it's the key
 
 How do you create an empty dictionary? How do you create a dictionary with initial content?
--you create an empty dictionary by setting whatever you want your dictionary named as equal to {}. You can create an
+-you create an empty dictionary by setting whatever you want your dictionary name as equal to {}. You can create an
     inital dictionary with values by entering your_dictionary = {key1: 'value', key2: 'value'}
 
 How do you add a new key/value pair to a dictionary? How do you update the value of a key in a dictionary?
+-you add a new key:value pair by saying dictionary['key']= value
+-you update the value of a dictionary by saying dictionary['key'] = value (it will update not add)
 
 How do you remove a key/value pair from a dictionary?
+-you delete an item by entering del dictionary['key']
 
 How do you look up the value for a given key in a dictionary?
+-you look up the value by typing dictionary['key'] and value will be returned
 
 How do you iterate over a dictionary?
+-you can iterate over dictionary using a foor loop, it will get each key
 
 Print keys?
+-for item in dictionary:
+    print(item)
 
 Print values?
+-for item in dictionary:
+    print(dictionary[item])
 
 Print keys and values?
+-dictionary.items()
+    for key, value in dictionary.items():
+        print(f'{key}: {value})
 
 What is a KeyError? When does one occur?
+-key error occurs when attempting to index into a dictionary with a non existant key
+    can avoid by using dict.get()
 
 Dictionary methods to know:
 
 .get()
+-dictionary.get('key', value_if_not_there)
+    returns value_if_not_there
 
 .values()
+-dictionary.values():
+    for value in dictionary.values():
+    print(value)
 
 .items()
+-for key, value in dictionary.items():
+    print(f'{key}: {value})
 
 How do you access a dictionary within a dictionary?
+-dictionary[main_key][key_within_main_key]
 
 When should you use a dictionary?
+-when you want to store information accessible by key (name to data, first string letter to list of words
+    with that letter, word paired with opposite word), for counting
 
 
 
