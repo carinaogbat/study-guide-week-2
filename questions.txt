@@ -68,37 +68,72 @@ When should you use a dictionary?
 
 Python Tools
 What are some characteristics of Python as compared to other programming languages?
+-strongly typed, dynamic, high-level language
 
 What are .pyc files? What is their purpose?
+-pyc files are a copy of compiled source, if original .py file hasn't changed it will 
+    use the .pyc file
 
 What’s the difference between the commands python3 mygame.py and python3 -i mygame.py?
+-first runs python, loads file.py, excutes code, returns to terminal when done 
+-second uses python interactively, runs pythonm leaves you in python console, allows
+    you to execute python expressions
 
 Built-in Python functions to know:
 
 dir()
+-show me the methods and attributes of this object
 
 help()
+-show me documentation about how to use this object
 
 Why does code style matter?
+-well styled code is easier to read, has fewer bugs, and companies will be more likely to hire you
 
 Key points of Python style to know
 
 Tabs vs. Spaces
+-four spaces preferred, never mix and match (in Vs Code press F1 then indentation to spaces)
 
 Line length and how to break lines for readability
+-official python says 79 char line limit
 
 Where to put whitespace
+-use to break up code, put spaces around operators, divide "paragraphs", two lines between functions
 
 Variable name style
+-use snake_case, function names should be verby, variable names should say what they are for, not what
+    they are, use plural nouns for collections, singular nouns for everything else, use ALL_UPPER_CASE
+    if a variable should never change
 
 Docstrings and comments
+-docstrings have inital one line summary, then more detail, always triple quote, use more
+    black lines if docstring is more than one line, tell you when and why to use function,
+    are for users of function
+-comments tell you how function is working on inside, are for maintainers of function
 
 What is sys.argv? What happens if you print it out?
+-helps you process any file, is list of command line arguments
+import sys
+
+filename = sys.argv[1]   # first real argument
+for melon_data in open(filename):
+    print(melon_data)
+-everything given on sys.argv is split on spaces and given as string
+    python3 process.py hello 2 3 comes as ['process.py', 'hello', '2', '3']
+-for multi-word phrase as one argument it needs to be quotes
+    python3 process.py hi there "everyone in class" comes as ['process.py', 'hi', 'there', 'everyone in class']
 
 Markov Chains
 In the context of Markov chains, what is a bigram? What’s an n-gram?
+-n gram is a sequence of n words, constructed from text, like links in a chain
+-bigrams are two word phrases
 
 How could you use dictionaries to structure a bigram markov chain implementation?
+1. pick starting point
+2. choose next word
+3. make a new key, choose a new word (2nd word of previous key and new word are new key)
+4. continue process until you've made a key not in your dictionary
 
 
 
@@ -121,49 +156,67 @@ CTRL-E to go to end of line
 
 CTRL-D to delete moving forward
 
-head <some file name>
+head <some file name>   (prints first ten lines of file, can specify number w/ head -n #)
 
-cat <some file name>
+cat <some file name>    (prints entire contents of file)
 
-tail <some file name>
+tail <some file name>   (prints last ten lines of file, can specify number w/ tail -n #)
+    -another useful option is -f it prints bottom 10 lines & continues w/o returning to shell
 
-wc <some file name>
+wc <some file name>     (prints linesm words, and byte length of file)
 
-sort <some file name>
+sort <some file name>   (prints file with lines sorted alphabetically)
 
 grep <term> <some file name>
+-searches text within files
 
 Using * to file name glob
+-globbing selects all of that file type (ie ls *.py)
 
 env
+-view all environmental variables
 
 echo $PATH
+-view an individual variable
 
 which python
+-shows where shell will find program
 
 export SOME_VARIABLE='some value'
+-set or change environmental variable
 
 What is STDIN? How do you capture it using Python?
+-standard input, by default is user at keyboard
 
 What is STDOUT? How do you push to it using Python?
+-where print statements go to, by default printed to shell
 
 What is STDERR?
+-where error messages go, by default printed to shell
 
 How do you redirect the output of one shell command to a file?
+-by using >, so you enter first_file > file_you_want_to_redirect_to, now will see in file not terminal
 
 How do you redirect the output of one shell command and append it to a file?
+-redirect standard output to append to file with >>, first_file >> file_to_display_at_end
 
 How do you redirect the content of a file as input to an interactive Python script?
+-redirect standard input from file with <
 
 How do you redirect the output of one shell command to the input of another?
+-with a pipeline |
 
 What is the shell environment?
+-an environment of variables, many are set but you can add or change them
 
 What is the $PATH environment variable? What role does it play on the command line?
+-environment variable used to find programs, will search path value left to right until found
 
 How can you access the shell environment in Python?
+-import os
 
 How do you set environment variables using a .sh file?
+-you put in 'shell script' (secrets.sh) then source secrets.sh when you need to
 
 
 
