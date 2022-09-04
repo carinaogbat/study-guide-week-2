@@ -222,30 +222,53 @@ How do you set environment variables using a .sh file?
 
 Python Projects
 What is a Python module?
+-importable code from a python file, allows you to separate code
 
 What is a namespace?
+-the menu of identifiers available to use, whatever variables you create are now
+    in namespace
 
 What are the 3 ways to import something in Python?
+1. import module (ie import random, can now refer to random.choice)
+2. from module import item (ie from random import choice, can now refer to choice() but nothing else)
+3. from module import * (imports everything from random directly, can now refer to choice, randint,
+    etc but not random.choice, generally not a good idea)
 
 Why is from some_module import * not a good practice?
+-not a good practice because there may be mutiple modules w/ same names
+-from flask import session, from database import session, now flask in overwritten
+-can import flask, import database
+-or from flask import session as flask_session, from database import session as database session
 
 When should you import a whole library versus only one function, class, etc.?
+-when you may want to use other items from module in the future, when you want to protect your
+    namespace
 
 What does if __name__ == "__main__" ask? When should you include this check at the bottom of your file?
+-tests for import vs running directly
 
 Where are the three places that you can import things from?
+-from same directory you're in, from standard library, from installing and using other peoples code
 
 What is pip?
+-is tool for installing python libraries from the PyPl
 
 What is a virtual environment? How is that different than a virtual machine?
+-creates isolated python environment w. own place to keep installed libraries
 
 Why are virtual environments necessary?
+-create isolated python environment, can run specific libraries, can run different versions of python,
+    creates folde where libraries can be installed
 
 How do you create a virtual environment? How do you activate it?
+-inside project directory type virtualenv env (env is directory name)
+    need to activate every time you start working with source/env/bin/activate
 
 What command can you use to view the currently installed Python libraries?
+-pip3 freeze will show env configuration
 
 What should you name the file that has the list of a Python project’s dependencies?
+-good to save it as requirements.txt (pip3 freeze > requirements.txt)
 
 
 
