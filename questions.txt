@@ -274,36 +274,100 @@ What should you name the file that has the list of a Python project’s dependen
 
 Classes
 How are classes different than dictionaries in terms of structure, flexibility, and data storage?
+-classes store data, some are flexible, they are structured, and they have their own smarts
+-dictionaries store data, are flexible, some are structured, and they do not have own smarts
 
 What is the relationship between a class and an instance?
+-a class is a type of thing, like a string or a file, an instance is the indvidual occurence
+    of the class (ie the string 'hackbright')
 
 What is instantiation?
+-creating an instance of a class
 
-What are attributes? How do you define an attribute at the class level (to be shared by all instances)? How do you set a new attribute on an instance? How can you update the value of an attribute on an instance?
+What are attributes? How do you define an attribute at the class level (to be shared by all instances)? 
+How do you set a new attribute on an instance? How can you update the value of an attribute on an instance?
+-attributes are any data you want to associate to an instance of a class (such as name, food eaten etc)
+-to define an attribute at the class level in the class declaration you put attribute = 'attribute'
+-you set an attribute on an instance by doing instance.attribute = 'your input'
+-you can update the value of an attribute on an instance by typing instance.attribute = 'new value', this
+will override the class attribute
 
 What is a method? How do you define a method on a class? How do you call a method?
+-a method is like a function defined on a class, you define it by declaring it within the class, all methods
+have at least one parameter called self and is it the instance the method is called on, you
+call it by doing instance.method()
 
 What are the key differences between functions and methods?
+-methods are defined on a class, methods take self as first argument, when you call a method python
+passes instance as self
+-they aare both code, they both have lists of parameters, they both get called with ()
 
 What is initialization? How is it different than instantiation?
+-initialization ( def __init__(self): ) is a special method called after creating an instance that will attach instance 
+attributes so you don't have to manually. It must take self and return None but you can list additional parameters
+besides self. This is different than instantiation because you are not adding attrributes manually, they are being 
+created along with the class
 
 What is __init__? When does it get called?
+-init is the automatic initialization, standard practice is to call it right after the class declaration,
+before any other methods, it adds any required attributes for each class
+
+***extra of mine, do not forget __reper__(self):
+    it allows you to define what will appear when you print the object  
+    def __reper__(self):
+    """show info about cat"""
+    return f'<Cat name = {self.name}>'
 
 What is encapsulation? What is abstraction? What is polymorphism?
+-encapsulation: data lives close to it's functionality
+-abstraction: don'tneed to know the information a method uses internally
+-polymorphism: it's easy to make different, interchangeable types of a class (like animals)
 
 What is inheritance? When is it appropriate for one class to inherit attributes and/or methods from another?
+-inheritance is the ability for a subclass to inherit from a superclass, the superclass is usually created
+as an abstract class that the subclasses than inherit (such as attributes). It's appropriate to do
+when you will need attributes for different child classes (such as mammal that cat and dog will then inherit)
 
 What are the various ways in which a child class can modify methods and attributes from a parent class?
+-a child class can modify a parents class by putting a declaration within it's class updating the attribute
+or method, (ie max_hunger = 99)
 
 What is super()?
+-super is a way of calling a parent classes method and putting in arguments so you don't have to each time
+ie class Animal:
+    def __init__(self, name, species)
+    self.name = name
+    self.species = species
+
+    class Cat(Animal):
+    def __init__(self, name):
+        super().__init__(name, "Cat")
 
 What’s an example of violating polymorphism? What’s an example of enforcing polymorphism?
+-creating inflexible code with too many conditionals violates polymorphism
+    for some_animal in family_animals:
+        some_animal.speak()
 
-When overriding parent methods, what is the only method that is normal to require different arguments than the parent method?
+
+When overriding parent methods, what is the only method that is normal to require different arguments than the 
+parent method?
+-the only method where it's normal to require different arguments than the parent method is in the
+__init__ method
 
 What is an abstract class? What makes it different than a typical class?
+-an abstract class is like a base class, you'll never create an instance of it but you will use itas a superclass
+for your other classes
 
-When there are methods that don’t directly map to an existing hierarchy, how can you continue to pursue encapsulation? (i.e. avoid copying the same method on several classes)
+When there are methods that don’t directly map to an existing hierarchy, how can you continue to pursue 
+encapsulation? (i.e. avoid copying the same method on several classes)
+-you can create a mixin class that will supply a feature to subclasses
+ie class ChasesLaserMixin:
+"""Can chase laser pointers"""
+    def chase_laser(self):
+    print("Woohoo! I love chasing lasers!!!")
+
+class Cat(ChasesLaserMixin, Animal):
+    -cat now inherits everything from animal and chases a laser
 
 
 
