@@ -41,10 +41,7 @@ def without_duplicates(words):
         >>> type(without_duplicates([111111, 2, 33333, 2]))
         <class 'list'>
     """
-    words_without_doubles = {}
-    for word in words:
-        if word not in words_without_doubles:
-            words_without_doubles = words_without_doubles[word]
+    words_without_doubles = set(words)
 
     return list(words_without_doubles)
 
@@ -110,8 +107,14 @@ def get_sum_zero_pairs(numbers):
         >>> sort_pairs( get_sum_zero_pairs([1, 3, -1, 1, 1, 0]) )
         [[-1, 1], [0, 0]]
     """
+    sum_zero_pairs = []
+    numbers_set = set(numbers)
+    for num in numbers_set:
+        if num >= 0 and -num in numbers_set:
+            sum_zero_pairs.append([num, -num])
+            
 
-    return []
+    return sum_zero_pairs
 
 
 def top_chars(phrase):
@@ -139,7 +142,43 @@ def top_chars(phrase):
 
     """
 
-    return []
+    tallies = {}
+    most_common_count = 0
+
+    for letter in phrase:
+
+        if letter == ' ':
+            continue
+
+        tallies[letter] = tallies.get(letter, 0) + 1
+
+        if tallies[letter] > most_common_count:
+            most_common_count = tallies[letter]
+
+    most_common = []
+
+    for letter, count in tallies.items():
+        if count == most_common_count:
+            most_common.append(letter)
+
+    return sorted(most_common)
+    # char_count_dict = {}
+    # most_common_count = 0
+    
+    # for let in phrase:
+    #     if let == ' ':
+    #         continue
+
+    #     char_count_dict[let] = char_count_dict.get(let, 0) +1
+       
+    #     if char_count_dict[let] > most_common_count:
+    #         most_common_count = char_count_dict[let]
+    # most_common = []
+    # for let, count in char_count_dict.items():
+    #     if count == most_common_count:
+    #         most_common.append(let)
+
+    # return sorted(char_count_dict)
 
 #####################################################################
 # You can ignore everything below this.
